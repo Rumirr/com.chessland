@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration>
+	<appender name="ERROR_DEBUG_FILE"
+		class="ch.qos.logback.core.FileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>ACCEPT</onMismatch>
+		</filter>
+		<file> segvial.log </file>
+		<append>true</append>
+		<encoder>
+			<pattern>%date{"yyyy-MM-dd HH:mm:ss", Europe/Madrid} %-4relative
+				[%thread] %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="debug">
+		<appender-ref ref="ERROR_DEBUG_FILE" />
+	</root>
+</configuration>
