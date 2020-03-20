@@ -6,7 +6,7 @@
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">
 			<level>ERROR</level>
 			<onMatch>ACCEPT</onMatch>
-			<onMismatch>ACCEPT</onMismatch>
+			<onMismatch>DENY</onMismatch>
 		</filter>
 		<file> chessLandError.log </file>
 		<append>true</append>
