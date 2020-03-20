@@ -1,0 +1,20 @@
+body{
+    margin-bottom: 100px;
+}
+#logo{
+    width: 45px;
+}
+#fotoPerfil > img{
+    width: 40px;
+}
+#fotoPerfil{
+    background-color: gainsboro;
+    padding: 3px;
+    border-radius: 4px;
+}
+#fotoPerfil:hover{
+    background-color: #17a2b8;
+}
+footer{
+    font-size: 20px;
+}

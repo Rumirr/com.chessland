@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Google api-->
+	<meta name="google-signin-scope" content="profile email" />
+	<meta name="google-signin-client_id"
+		content="617089050273-ff73j8he13predvoj1ag7tma7d5e75om.apps.googleusercontent.com" />
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<script src="js/main.js"></script>
+	<link rel="stylesheet" href="css/main.css">
+
+	<link rel="shortcut icon" href="img/horse-15.svg" type="image/x-icon">
+
+	<title>Chess Land</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-secondary fixed-top">
+		<a class="navbar-brand" href="index.html"><img src="img/horse-15.svg" alt="Crown" id="logo"
+				class="d-inline-block align-top"></a>
+		<ul class="navbar-nav text-right">
+			<li class="nav-item active">
+				<a class="nav-link" href="index.html">Inicio</a>
+			</li>
+			<li class="nav-item">
+			</li>
+		</ul>
+		<div class="g-signin2 ml-auto mr-2 mr-sm-0" data-onsuccess="onSignIn"></div>
+	</nav>
+
+	<div class="container mt-5 p-5">
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+				<button type="button" class="btn btn-outline-success btn-block">Jugar (normal)</button>
+				<button type="button" class="btn btn-outline-success btn-block">Jugar en local</button>
+			</div>
+			<div class="col-sm-12 col-md-8">
+				<h3 class="text-center mt-4 mt-md-0">Top 10 jugadores</h3>
+				<table class="table table-striped text-center">
+					<thead>
+						<tr>
+							<th class="align-content-lg-center">Posición</th>
+							<th>Jugador</th>
+							<th>Partidas ganadas</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td scope="row">1</td>
+							<td>Gustavo</td>
+							<td>10</td>
+						</tr>
+						<tr>
+							<td scope="row">2</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td scope="row">3</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td scope="row">4</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td scope="row">5</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td scope="row">6</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td scope="row">7</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td scope="row">8</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td scope="row">9</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td scope="row">10</td>
+							<td>Gustavo</td>
+							<td>5</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<footer class="fixed-bottom bg-secondary text-white-50 text-center p-3">
+		<p class="mb-0">Chess land</p>
+	</footer>
+</body>
+
+</html>
