@@ -17,4 +17,14 @@ public class UserEJB {
 		return userDAO.getAll();
 	}
 
+	public User checkUser(String email) {
+		UserDAO userDAO = new UserDAO();
+		return userDAO.checkUser(email);
+	}
+
+	public void insertUser(User user) {
+		UserDAO userDAO = new UserDAO();
+		userDAO.insertUser(user);
+	}
+
 }

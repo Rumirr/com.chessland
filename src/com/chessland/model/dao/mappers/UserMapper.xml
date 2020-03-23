@@ -14,5 +14,15 @@
 	<select id="getAll" resultMap="UserRM">
 		SELECT * FROM User
 	</select>
+	<select id="checkUser" resultType="User">
+		SELECT * FROM User WHERE email = #{email};
+	</select>
+
+	<insert id="insertUser" parameterType="User">
+		INSERT INTO User
+		(`email`,`name`,`surname`,`imgUrl`,`locale`)
+		VALUES
+		(#{email},#{name},#{surname},#{imgUrl},#{locale});
+	</insert>
 
 </mapper>
