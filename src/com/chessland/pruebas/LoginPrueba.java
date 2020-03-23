@@ -24,10 +24,10 @@ import ch.qos.logback.classic.Logger;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/LoginP")
+public class LoginPrueba extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = (Logger) LoggerFactory.getLogger(Login.class);
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(LoginPrueba.class);
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
