@@ -1,6 +1,7 @@
 package com.chessland.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.GeneralSecurityException;
 
 import javax.ejb.EJB;
@@ -9,10 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.LoggerFactory;
 
 import com.chessland.model.ejb.MyGoogle;
+import com.chessland.model.ejb.SessionEJB;
 import com.chessland.model.ejb.UserEJB;
 import com.chessland.model.ejb.UtilsEJB;
 import com.chessland.model.pojo.User;
@@ -32,6 +35,8 @@ public class Login extends HttpServlet {
 	UserEJB userEJB;
 	@EJB
 	UtilsEJB utilsEJB;
+	@EJB
+	SessionEJB sessionEJB;
 
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(Login.class);
 
@@ -44,23 +49,30 @@ public class Login extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		PrintWriter out = response.getWriter();
 
-		String token = request.getParameter("token");
+		if (sessionEJB.hasUser(session)) {
+			out.append("Inicio");
+		} else {
 
-		if (token != null && !token.equals("")) {
-			try {
-				User user = googleEJB.getUserFromToken(token);
-				if (user != null) {
-					User userChecked = userEJB.checkUser(user.getEmail());
-					if (userChecked == null) {
-						userEJB.insertUser(user);
-						userChecked = user;
+			String token = request.getParameter("token");
+
+			if (token != null && !token.equals("")) {
+				try {
+					User user = googleEJB.getUserFromToken(token);
+					if (user != null) {
+						User userChecked = userEJB.checkUser(user.getEmail());
+						if (userChecked == null) {
+							userEJB.insertUser(user);
+							userChecked = user;
+						}
+						sessionEJB.saveUser(request.getSession(true), userChecked);
+						out.append("Inicio");
 					}
-					request.getSession(true).setAttribute("user", userChecked);
-					response.getWriter().append("Inicio");
+				} catch (GeneralSecurityException | IOException e) {
+					logger.error(e.getMessage());
 				}
-			} catch (GeneralSecurityException | IOException e) {
-				logger.error(e.getMessage());
 			}
 		}
 
