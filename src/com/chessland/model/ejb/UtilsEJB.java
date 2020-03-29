@@ -21,7 +21,7 @@ public class UtilsEJB {
 	 * @throws IOException
 	 */
 	public void sendRedirectToIndex(HttpServletResponse response) throws IOException {
-		response.sendRedirect("index.html");
+		response.sendRedirect("index.jsp");
 	}
 
 	/**
