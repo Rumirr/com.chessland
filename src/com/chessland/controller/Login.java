@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		if (sessionEJB.hasUser(session)) {
-			out.append("Inicio");
+			response.sendRedirect("Inicio");
 		} else {
 
 			String token = request.getParameter("token");
@@ -68,7 +68,7 @@ public class Login extends HttpServlet {
 							userChecked = user;
 						}
 						sessionEJB.saveUser(request.getSession(true), userChecked);
-						out.append("Inicio");
+						response.sendRedirect("Inicio");
 					}
 				} catch (GeneralSecurityException | IOException e) {
 					logger.error(e.getMessage());
