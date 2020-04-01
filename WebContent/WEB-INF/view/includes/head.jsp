@@ -29,6 +29,9 @@
 <script src="js/main.js"></script>
 <link rel="stylesheet" href="css/main.css">
 
+<!-- Sweet Alert 2 -->
+<script src='https://cdn.jsdelivr.net/npm/sweetalert2@9'></script>
+
 <link rel="shortcut icon" href="img/horse-15.svg" type="image/x-icon">
 
 <title>Chess Land</title>

@@ -30,4 +30,11 @@ public interface UserMapper {
 	 */
 	public void insertUser(User user);
 
+	/**
+	 * Cambia la ruta de la imagen de un usuario.
+	 * @param filePath Ruta del archivo.
+	 * @param email Email del usuario.
+	 */
+	public void changeImg(@Param("img") String filePath, @Param("email")String email);
+	
 }

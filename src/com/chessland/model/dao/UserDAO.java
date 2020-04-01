@@ -30,21 +30,21 @@ public class UserDAO {
 
 	public User checkUser(String email) {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-		
+
 		try {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			return userMapper.checkUser(email);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			throw e;
-		}finally {
+		} finally {
 			MyBatisUtil.closeSession(sqlSession);
 		}
 	}
-	
+
 	public void insertUser(User user) {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-		
+
 		try {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			userMapper.insertUser(user);
@@ -53,8 +53,25 @@ public class UserDAO {
 			logger.error(e.getMessage());
 			MyBatisUtil.rollbackSession(sqlSession);
 			throw e;
-		}finally {
-			
+		} finally {
+
 		}
 	}
+
+	public void changeImg(String imgPath, String userEmail) {
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+
+		try {
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			userMapper.changeImg(imgPath, userEmail);
+			sqlSession.commit();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			MyBatisUtil.rollbackSession(sqlSession);
+			throw e;
+		} finally {
+			MyBatisUtil.closeSession(sqlSession);
+		}
+	}
+
 }

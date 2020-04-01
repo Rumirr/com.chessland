@@ -27,4 +27,9 @@ public class UserEJB {
 		userDAO.insertUser(user);
 	}
 
+	public void changeImg(String imgPath, String userEmail) {
+		UserDAO userDAO = new UserDAO();
+		userDAO.changeImg(imgPath, userEmail);
+	}
+	
 }

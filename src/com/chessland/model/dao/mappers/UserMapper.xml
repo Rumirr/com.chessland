@@ -25,4 +25,8 @@
 		(#{email},#{name},#{surname},#{imgUrl},#{locale});
 	</insert>
 
+	<update id="changeImg">
+		UPDATE User SET imgUrl = #{img} WHERE email = #{email}
+	</update>
+
 </mapper>

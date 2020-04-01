@@ -1,7 +1,6 @@
 package com.chessland.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.security.GeneralSecurityException;
 
 import javax.ejb.EJB;
@@ -50,7 +49,6 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		PrintWriter out = response.getWriter();
 
 		if (sessionEJB.hasUser(session)) {
 			response.sendRedirect("Inicio");

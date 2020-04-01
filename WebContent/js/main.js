@@ -15,3 +15,36 @@ function onSignIn(googleUser) {
 	auth2.disconnect();
 	auth2.signOut();
 }
+
+async function changePhoto() {
+	const { value: file } = await Swal.fire({
+		title: 'Seleccione una foto',
+		input: 'file',
+		inputAttributes: {
+			'accept': 'image/*',
+			'aria-label': 'Upload your profile picture'
+		}
+	})
+
+	if (file) {
+		console.log(file);
+
+		let formData = new FormData();
+		formData.append('img', file);
+
+		console.log('formData -> ');
+		console.log(formData);
+
+
+		let request = new XMLHttpRequest();
+		request.onreadystatechange = function () {
+			console.log('Status -> ' + this.status);
+			console.log('State -> ' + this.readyState);
+			console.log('Response -> ' + this.responseText);
+		}
+		request.open('POST', 'Perfil', true);
+		request.send(formData);
+
+	}
+
+}
